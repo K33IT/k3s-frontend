@@ -1,4 +1,4 @@
-name: Deploy Backend to K3s
+name: Deploy Frontend to K3s
 
 on:
   push:
@@ -24,7 +24,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: ghcr.io/${{ github.repository_owner }}/k3s-backend:latest
+          tags: ghcr.io/${{ github.repository_owner }}/k3s-frontend:latest
 
       - name: Connect to VM via Tailscale
         uses: tailscale/github-action@v2
@@ -36,7 +36,7 @@ jobs:
           ssh -o StrictHostKeyChecking=no \
             user-k3s@100.107.34.111 << 'EOF'
             cd ~/k8s-app
-            kubectl set image deployment/backend-deployment backend=ghcr.io/${{ github.repository_owner }}/k3s-backend:latest
-            kubectl rollout restart deployment/backend-deployment
-            echo "✅ Backend deployed successfully!"
+            kubectl set image deployment/frontend-deployment frontend=ghcr.io/${{ github.repository_owner }}/k3s-frontend:latest
+            kubectl rollout restart deployment/frontend-deployment
+            echo "✅ Frontend deployed successfully!"
           EOF
