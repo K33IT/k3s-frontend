@@ -50,7 +50,7 @@ function App() {
           gap: "20px",
         }}
       >
-        <h1>Look city's weather</h1>
+        <h1>Look for a city's weather</h1>
 
         <div>
           <input
