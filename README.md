@@ -1,3 +1,3 @@
 # k3s-frontend
 Frontend pour K3s
-Test déploiement automatique - Frontend OK ok
+Test déploiement automatique - Frontend OK
