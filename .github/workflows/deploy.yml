@@ -45,7 +45,7 @@ jobs:
         run: |
           ssh -o StrictHostKeyChecking=no \
             user-k3s@100.107.34.111 << 'EOF'
-            cd ~/k8s-app
+            cd ~/k3s
             kubectl set image deployment/frontend-deployment frontend=ghcr.io/${{ github.repository_owner }}/k3s-frontend:latest
             kubectl rollout restart deployment/frontend-deployment
             echo "✅ Frontend deployed successfully!"
